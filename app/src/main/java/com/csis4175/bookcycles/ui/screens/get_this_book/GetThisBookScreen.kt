@@ -6,9 +6,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-fun GetThisBookScreen(
-
-){
+fun GetThisBookScreen(){
     Column {
         Text("Ancient Egypt Book")
         Text("Location Map/Address")

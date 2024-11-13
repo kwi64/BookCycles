@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">BookCycles</string>
+    <string name="book_cycles_screen_title">BOOK CYCLES</string>
+    <string name="register_screen_title">REGISTER</string>
+    <string name="nearby_book_locations_screen_title">NEARBY BOOK LOCATIONS</string>
+    <string name="share_a_book_screen_title">SHARE A BOOK</string>
+    <string name="my_shared_books_screen_title">MY SHARED BOOKS</string>
+    <string name="scheduled_visitors_screen_title">SCHEDULED VISITORS</string>
+    <string name="available_books_screen_title">AVAILABLE BOOKS</string>
+    <string name="get_this_book_screen_title">GET THIS BOOK</string>
 </resources>
