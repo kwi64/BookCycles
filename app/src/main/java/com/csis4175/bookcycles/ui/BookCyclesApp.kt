@@ -21,8 +21,10 @@ import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -77,6 +79,7 @@ fun BookCyclesApp(navController: NavHostController = rememberNavController()) {
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
                 .padding(innerPadding)
+                .padding(24.dp)
         ) {
             // BOOK CYCLES (login page)
             composable(route = BookCyclesScreen.Login.name) {
@@ -165,15 +168,15 @@ fun BookCyclesTopAppBar(
     modifier: Modifier = Modifier
 ) {
     CenterAlignedTopAppBar(
-        scrollBehavior = scrollBehavior,
+//        scrollBehavior = scrollBehavior,
         colors = topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-            titleContentColor = MaterialTheme.colorScheme.onPrimary,
+//            containerColor = MaterialTheme.colorScheme.primaryContainer,
+//            titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
         ),
         title = {
-            Text(
+            if (currentScreen != BookCyclesScreen.Login) Text(
                 text = stringResource(currentScreen.title),
-                style = MaterialTheme.typography.headlineSmall,
+                style = MaterialTheme.typography.titleLarge,
             )
         },
         navigationIcon = {
@@ -181,7 +184,8 @@ fun BookCyclesTopAppBar(
                 IconButton(onClick = navigateUp) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Back Button"
+                        contentDescription = "Back Button",
+//                        tint = MaterialTheme.colorScheme.primary
                     )
                 }
             }
