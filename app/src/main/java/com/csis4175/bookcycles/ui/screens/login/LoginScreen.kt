@@ -49,14 +49,14 @@ fun LoginScreen(
 
         Row{
             InputButton(
-                onClick = onLoginButtonClicked,
+                onClick = onRegisterButtonClicked,
                 modifier = Modifier.weight(1f)
             ) {
                 Text("REGISTER")
             }
             Spacer(modifier = Modifier.width(20.dp))
             InputButton(
-                onClick = onRegisterButtonClicked,
+                onClick = onLoginButtonClicked,
                 modifier = Modifier.weight(1f)
             ) {
                 Text("LOG IN")
