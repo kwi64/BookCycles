@@ -1,15 +1,19 @@
 package com.csis4175.bookcycles.ui
 
 import androidx.annotation.StringRes
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -19,13 +23,14 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
-import androidx.compose.material3.TopAppBarScrollBehavior
+import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -35,9 +40,9 @@ import androidx.navigation.compose.rememberNavController
 import com.csis4175.bookcycles.R
 import com.csis4175.bookcycles.ui.screens.available_books.AvailableBooksScreen
 import com.csis4175.bookcycles.ui.screens.get_this_book.GetThisBookScreen
-import com.csis4175.bookcycles.ui.screens.nearby_locations.NearbyLocationsScreen
 import com.csis4175.bookcycles.ui.screens.login.LoginScreen
 import com.csis4175.bookcycles.ui.screens.my_books.MyBooksScreen
+import com.csis4175.bookcycles.ui.screens.nearby_locations.NearbyLocationsScreen
 import com.csis4175.bookcycles.ui.screens.register.RegisterScreen
 import com.csis4175.bookcycles.ui.screens.share_book.ShareBookScreen
 import com.csis4175.bookcycles.ui.screens.visitors.VisitorsScreen
@@ -53,7 +58,50 @@ enum class BookCyclesScreen(@StringRes val title: Int) {
     GetThisBook(title = R.string.get_this_book_screen_title),
 }
 
+
 @OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun BookCyclesTopAppBar(
+    canNavigateBack: Boolean,
+    navigateUp: () -> Unit,
+    currentScreen: BookCyclesScreen,
+    modifier: Modifier = Modifier
+) {
+    CenterAlignedTopAppBar(
+
+        colors = topAppBarColors(
+//            containerColor = MaterialTheme.colorScheme.primaryContainer,
+//            titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+        ),
+        title = {
+            if (currentScreen != BookCyclesScreen.Login) Column(
+                verticalArrangement = Arrangement.Center,
+                modifier = Modifier
+                    .fillMaxHeight()
+            ) {
+                Text(
+                    text = stringResource(currentScreen.title),
+                    style = MaterialTheme.typography.titleLarge,
+                )
+            }
+        },
+        navigationIcon = {
+            if (canNavigateBack) {
+                IconButton(onClick = navigateUp) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = "Back Button",
+//                        tint = MaterialTheme.colorScheme.primary
+                    )
+                }
+            }
+        },
+
+        modifier = modifier
+            .height(64.dp)
+    )
+}
+
 @Composable
 fun BookCyclesApp(
     navController: NavHostController = rememberNavController()
@@ -66,8 +114,6 @@ fun BookCyclesApp(
     )
 
     Scaffold(
-        modifier = Modifier
-            .padding(24.dp),
         topBar = {
             BookCyclesTopAppBar(
                 canNavigateBack = navController.previousBackStackEntry != null,
@@ -79,10 +125,14 @@ fun BookCyclesApp(
         NavHost(
             navController = navController,
             startDestination = startDestination.name,
+            enterTransition = { EnterTransition.None },
+            exitTransition = { ExitTransition.None },
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
                 .padding(innerPadding)
+                .padding(horizontal = 24.dp)
+                .padding(top = 8.dp)
         ) {
             // BOOK CYCLES (login page)
             composable(route = BookCyclesScreen.Login.name) {
@@ -159,38 +209,4 @@ fun BookCyclesApp(
             }
         }
     }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun BookCyclesTopAppBar(
-    canNavigateBack: Boolean,
-    navigateUp: () -> Unit,
-    currentScreen: BookCyclesScreen,
-    modifier: Modifier = Modifier
-) {
-    CenterAlignedTopAppBar(
-        colors = topAppBarColors(
-//            containerColor = MaterialTheme.colorScheme.primaryContainer,
-//            titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-        ),
-        title = {
-            if (currentScreen != BookCyclesScreen.Login) Text(
-                text = stringResource(currentScreen.title),
-                style = MaterialTheme.typography.titleLarge,
-            )
-        },
-        navigationIcon = {
-            if (canNavigateBack) {
-                IconButton(onClick = navigateUp) {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Back Button",
-//                        tint = MaterialTheme.colorScheme.primary
-                    )
-                }
-            }
-        },
-        modifier = modifier
-    )
 }

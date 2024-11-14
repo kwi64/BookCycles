@@ -38,7 +38,7 @@ fun InputButton(
     colors: ButtonColors = ButtonDefaults.buttonColors(),
     elevation: ButtonElevation? = ButtonDefaults.buttonElevation(),
     border: BorderStroke? = null,
-    contentPadding: PaddingValues = PaddingValues(top = 6.dp, bottom = 6.dp, start = 10.dp, end = 10.dp),
+    contentPadding: PaddingValues = PaddingValues(top = 7.dp, bottom = 7.dp, start = 10.dp, end = 10.dp),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable RowScope.() -> Unit
 ){

@@ -27,8 +27,8 @@ val Typography = Typography(
     titleLarge = TextStyle(
         fontFamily = Kanit,
         fontWeight = FontWeight.Light,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
+        fontSize = 20.sp,
+        lineHeight = 24.sp,
         letterSpacing = 0.sp
     ),
     bodyLarge = TextStyle(
@@ -48,8 +48,8 @@ val Typography = Typography(
     labelLarge = TextStyle(
         fontFamily = Kanit,
         fontWeight = FontWeight.Light,
-        fontSize = 14.sp,
-        lineHeight = 24.sp,
+        fontSize = 13.sp,
+        lineHeight = 20.sp,
         letterSpacing = 1.sp
     ),
     labelSmall = TextStyle(
