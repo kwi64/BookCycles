@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.csis4175.bookcycles.ui.components.InputButton
-import com.csis4175.bookcycles.ui.components.InputMap
+import com.csis4175.bookcycles.ui.components.InputLocation
 import com.csis4175.bookcycles.ui.components.InputTextField
 
 @Composable
@@ -45,7 +45,7 @@ fun RegisterScreen(
             modifier = Modifier.fillMaxWidth()
         )
 
-        InputMap(
+        InputLocation(
             label = "SET YOUR LOCATION",
             modifier = Modifier
                 .height(300.dp)

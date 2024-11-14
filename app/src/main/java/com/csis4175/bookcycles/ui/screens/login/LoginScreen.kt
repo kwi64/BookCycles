@@ -34,15 +34,18 @@ fun LoginScreen(
     var password by rememberSaveable { mutableStateOf("123456") }
 
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Top,
-        modifier = Modifier.fillMaxSize()
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Spacer(Modifier.height(80.dp))
+        Spacer(
+            Modifier
+                .fillMaxWidth()
+                .weight(0.6f)
+        )
         Text(
             "Book Cycles",
             style = MaterialTheme.typography.displayLarge
         )
+        Spacer(Modifier.height(20.dp))
 
 
         InputTextField(
@@ -60,7 +63,7 @@ fun LoginScreen(
             modifier = Modifier.fillMaxWidth()
         )
 
-        Row{
+        Row {
             InputButton(
                 onClick = onRegisterButtonClicked,
                 modifier = Modifier.weight(1f)
@@ -75,5 +78,10 @@ fun LoginScreen(
                 Text("LOG IN")
             }
         }
+        Spacer(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+        )
     }
 }
