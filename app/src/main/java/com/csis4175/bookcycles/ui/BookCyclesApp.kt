@@ -1,6 +1,8 @@
 package com.csis4175.bookcycles.ui
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -53,8 +55,10 @@ enum class BookCyclesScreen(@StringRes val title: Int) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BookCyclesApp(navController: NavHostController = rememberNavController()) {
-    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+fun BookCyclesApp(
+    navController: NavHostController = rememberNavController()
+) {
+    val startDestination: BookCyclesScreen = BookCyclesScreen.Login
 
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentScreen = BookCyclesScreen.valueOf(
@@ -62,10 +66,10 @@ fun BookCyclesApp(navController: NavHostController = rememberNavController()) {
     )
 
     Scaffold(
-        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = Modifier
+            .padding(24.dp),
         topBar = {
             BookCyclesTopAppBar(
-                scrollBehavior = scrollBehavior,
                 canNavigateBack = navController.previousBackStackEntry != null,
                 navigateUp = { navController.navigateUp() },
                 currentScreen = currentScreen
@@ -74,18 +78,17 @@ fun BookCyclesApp(navController: NavHostController = rememberNavController()) {
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = BookCyclesScreen.Login.name,
+            startDestination = startDestination.name,
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
                 .padding(innerPadding)
-                .padding(24.dp)
         ) {
             // BOOK CYCLES (login page)
             composable(route = BookCyclesScreen.Login.name) {
                 LoginScreen(
                     onLoginButtonClicked = {
-                        navController.navigate(BookCyclesScreen.NearbyLocations.name){
+                        navController.navigate(BookCyclesScreen.NearbyLocations.name) {
                             popUpTo(navController.graph.startDestinationId) {
                                 inclusive = true
                             }
@@ -100,7 +103,7 @@ fun BookCyclesApp(navController: NavHostController = rememberNavController()) {
             composable(route = BookCyclesScreen.Register.name) {
                 RegisterScreen(
                     onCompleteRegistrationButtonClicked = {
-                        navController.navigate(BookCyclesScreen.NearbyLocations.name){
+                        navController.navigate(BookCyclesScreen.NearbyLocations.name) {
                             popUpTo(navController.graph.startDestinationId) {
                                 inclusive = true
                             }
@@ -161,14 +164,12 @@ fun BookCyclesApp(navController: NavHostController = rememberNavController()) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BookCyclesTopAppBar(
-    scrollBehavior: TopAppBarScrollBehavior,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
     currentScreen: BookCyclesScreen,
     modifier: Modifier = Modifier
 ) {
     CenterAlignedTopAppBar(
-//        scrollBehavior = scrollBehavior,
         colors = topAppBarColors(
 //            containerColor = MaterialTheme.colorScheme.primaryContainer,
 //            titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
