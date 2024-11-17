@@ -4,6 +4,8 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -30,7 +32,8 @@ fun InputMap(
             Image(
                 painter = painterResource(id = R.drawable.map),
                 contentDescription = "Location",
-                contentScale = ContentScale.None
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxSize()
             )
         }
         Spacer(modifier = Modifier.height(8.dp))
