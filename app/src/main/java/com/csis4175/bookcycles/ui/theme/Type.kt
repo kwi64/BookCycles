@@ -16,72 +16,80 @@ val Kanit = FontFamily(
     Font(R.font.kanit_light, FontWeight.Light),
     Font(R.font.kanit_light, FontWeight.Thin),
     Font(R.font.kanit_extra_light, FontWeight.ExtraLight),
+    Font(R.font.kanit_semi_bold, FontWeight.SemiBold),
 //    Font(R.font.kanit_regular, FontWeight.Normal),
 )
 
 // Set of Material typography styles to start with
 val Typography = Typography(
-    displayLarge = TextStyle(
+    displayLarge = TextStyle( // Login Screen -> Main Title
         fontFamily = Kanit,
         fontWeight = FontWeight.Normal,
         fontSize = 48.sp,
         lineHeight = 48.sp,
         letterSpacing = 0.sp
     ),
-    headlineMedium = TextStyle(
+    headlineMedium = TextStyle( // BookListItem -> Title Text, BookPreview -> Title Text
         fontFamily = Kanit,
         fontWeight = FontWeight.Normal,
-        fontSize = 14.sp,
-        lineHeight = 16.sp,
+        fontSize = 18.sp,
+        lineHeight = 20.sp,
         letterSpacing = 1.sp,
     ),
-    headlineSmall = TextStyle(
+    headlineSmall = TextStyle( // BookListItem -> Author Text, BookPreview -> Author Text, VisitorItem -> Name
         fontFamily = Kanit,
         fontWeight = FontWeight.Thin,
-        fontSize = 12.sp,
-        lineHeight = 13.sp,
+        fontSize = 18.sp,
+        lineHeight = 20.sp,
         letterSpacing = 1.sp,
     ),
-    titleLarge = TextStyle(
+    titleLarge = TextStyle( // TopAppBar -> Title Text
         fontFamily = Kanit,
         fontWeight = FontWeight.Light,
-        fontSize = 20.sp,
+        fontSize = 22.sp,
+        lineHeight = 22.sp,
+        letterSpacing = 0.sp
+    ),
+    titleMedium = TextStyle( // Visitors Screen -> Scheduled Visitors Label
+        fontFamily = Kanit,
+        fontWeight = FontWeight.Light,
+        fontSize = 16.sp,
         lineHeight = 20.sp,
-        letterSpacing = 0.sp
+        letterSpacing = 1.sp,
     ),
-    bodyLarge = TextStyle(
+    bodyLarge = TextStyle( // GetThisBook -> Availability Text
         fontFamily = Kanit,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.SemiBold,
         fontSize = 16.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
-    ),
-    bodyMedium = TextStyle(
-        fontFamily = Kanit,
-        fontWeight = FontWeight.Light,
-        fontSize = 16.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.sp
-    ),
-    bodySmall = TextStyle(
-        fontFamily = Kanit,
-        fontWeight = FontWeight.ExtraLight,
-        fontSize = 12.sp,
-        lineHeight = 14.sp,
-        letterSpacing = 0.5.sp
-    ),
-    labelLarge = TextStyle(
-        fontFamily = Kanit,
-        fontWeight = FontWeight.Light,
-        fontSize = 13.sp,
-        lineHeight = 13.sp,
+        lineHeight = 20.sp,
         letterSpacing = 1.sp
     ),
-    labelSmall = TextStyle(
+    bodyMedium = TextStyle( // InputText->Inner Text
+        fontFamily = Kanit,
+        fontWeight = FontWeight.Light,
+        fontSize = 16.sp,
+        lineHeight = 16.sp,
+        letterSpacing = 0.sp
+    ),
+    bodySmall = TextStyle( // BookPreview -> Description, VisitorItem -> Telephone, VisitAt
+        fontFamily = Kanit,
+        fontWeight = FontWeight.Light,
+        fontSize = 16.sp,
+        lineHeight = 20.sp,
+        letterSpacing = 0.5.sp
+    ),
+    labelLarge = TextStyle( // InputButton->Inner Text
+        fontFamily = Kanit,
+        fontWeight = FontWeight.Light,
+        fontSize = 16.sp,
+        lineHeight = 16.sp,
+        letterSpacing = 1.sp
+    ),
+    labelSmall = TextStyle( // InputText->Label Text
         fontFamily = Kanit,
         fontWeight = FontWeight.Normal,
-        fontSize = 12.sp,
-        lineHeight = 12.sp,
+        fontSize = 16.sp,
+        lineHeight = 16.sp,
         letterSpacing = 1.sp
     ),
 

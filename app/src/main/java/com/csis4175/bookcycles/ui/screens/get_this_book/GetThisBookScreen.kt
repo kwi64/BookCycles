@@ -45,12 +45,6 @@ fun GetThisBookScreen(){
         Modifier
             .verticalScroll(rememberScrollState())
     ) {
-        Text(
-            text = "THIS BOOK IS AVAILABLE AT 5.00 PM TODAY AT 5.PM TODAY",
-            style = MaterialTheme.typography.headlineMedium,
-            color = MaterialTheme.colorScheme.primary
-        )
-        Spacer(Modifier.height(8.dp))
         BookPreview(
             title = title,
             author = author,
@@ -63,12 +57,19 @@ fun GetThisBookScreen(){
             modifier = Modifier
                 .height(300.dp)
         )
+
+        Text(
+            text = "THIS BOOK IS AVAILABLE AT 5.00 PM TODAY",
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.primary
+        )
+
         InputButton(
             onClick = {},
             Modifier
                 .align(Alignment.End)
         ) {
-            Text("Book A VISIT")
+            Text("BOOK A VISIT")
         }
     }
 }

@@ -38,6 +38,6 @@ fun InputLocation(modifier: Modifier = Modifier, label: String){
                 modifier = Modifier.fillMaxSize()
             )
         }
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(12.dp))
     }
 }
