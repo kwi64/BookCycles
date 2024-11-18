@@ -34,8 +34,12 @@ fun BookPreview(
     description: String? = null,
     imgSrc: String
 ){
-    val height = 200.dp
+    val height = 240.dp
 
+    Text(
+        text = "ABOUT",
+        style = MaterialTheme.typography.titleMedium
+    )
     Card(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant,
@@ -76,7 +80,7 @@ fun BookPreview(
                         style = MaterialTheme.typography.headlineMedium,
                         textAlign = TextAlign.Start,
                         modifier = Modifier
-                            .padding(horizontal = 8.dp)
+                            .padding(horizontal = 16.dp)
                     )
                     if(author != null && author.trim().isNotEmpty()){
                         Text(
@@ -84,7 +88,7 @@ fun BookPreview(
                             style = MaterialTheme.typography.headlineSmall,
                             textAlign = TextAlign.Start,
                             modifier = Modifier
-                                .padding(start = 8.dp, end = 8.dp, bottom = 2.dp)
+                                .padding(start = 16.dp, end = 16.dp, bottom = 2.dp)
                         )
                     }
                 }
@@ -94,10 +98,10 @@ fun BookPreview(
                     text = description,
                     style = MaterialTheme.typography.bodySmall,
                     modifier = Modifier
-                        .padding(top = 4.dp, bottom = 4.dp, start = 8.dp, end = 8.dp)
+                        .padding(top = 12.dp, bottom = 12.dp, start = 16.dp, end = 16.dp)
                 )
             }
         }
     }
-    Spacer(Modifier.height(8.dp))
+    Spacer(Modifier.height(20.dp))
 }

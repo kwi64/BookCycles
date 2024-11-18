@@ -6,9 +6,12 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -21,6 +24,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import androidx.navigation.navOptions
 import com.csis4175.bookcycles.ui.BookCyclesScreen
 
 
@@ -45,6 +49,7 @@ fun AppBarMenu(navController: NavHostController) {
         Column {
             MenuButton(
                 onClick = {
+                    showMenu = false
 //                    navController.navigate(BookCyclesScreen.NearbyLocations.name) {
 //                        popUpTo(navController.graph.startDestinationId) {
 //                            inclusive = true
@@ -63,6 +68,22 @@ fun AppBarMenu(navController: NavHostController) {
                 )
                 Spacer(Modifier.width(12.dp))
                 Text(text = "HOME")
+            }
+
+            HorizontalDivider(thickness = 2.dp)
+
+            MenuButton(
+                onClick = {
+                    showMenu = false
+                    navController.navigate(BookCyclesScreen.MyBooks.name)
+                },
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.MenuBook,
+                    contentDescription = "Localized description"
+                )
+                Spacer(Modifier.width(12.dp))
+                Text(text = "MY BOOKS")
             }
         }
     }

@@ -25,8 +25,8 @@ fun MyBooksScreen(
             onDismissRequest = {
                 openDialog.value = false
             },
-            dialogText = "Are you sure you want to delete ${bookTitle.value}?",
-            dialogTitle = "Delete Book",
+            dialogText = "Are you sure you want to remove ${bookTitle.value}?",
+            dialogTitle = "Remove Book?",
             onConfirmation = {
                 openDialog.value = false
             }
