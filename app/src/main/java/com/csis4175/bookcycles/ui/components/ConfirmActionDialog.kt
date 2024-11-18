@@ -44,7 +44,6 @@ fun ConfirmActionDialog(
             ) {
                 Text("Dismiss")
             }
-        },
-        modifier = Modifier.padding(horizontal = 24.dp)
+        }
     )
 }
