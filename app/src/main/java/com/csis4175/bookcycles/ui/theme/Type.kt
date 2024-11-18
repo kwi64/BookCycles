@@ -15,6 +15,7 @@ val Kanit = FontFamily(
     Font(R.font.kanit_regular, FontWeight.Normal),
     Font(R.font.kanit_light, FontWeight.Light),
     Font(R.font.kanit_light, FontWeight.Thin),
+    Font(R.font.kanit_extra_light, FontWeight.ExtraLight),
 //    Font(R.font.kanit_regular, FontWeight.Normal),
 )
 
@@ -24,49 +25,56 @@ val Typography = Typography(
         fontFamily = Kanit,
         fontWeight = FontWeight.Normal,
         fontSize = 48.sp,
-        lineHeight = 52.sp,
+        lineHeight = 48.sp,
         letterSpacing = 0.sp
     ),
     headlineMedium = TextStyle(
         fontFamily = Kanit,
         fontWeight = FontWeight.Normal,
         fontSize = 14.sp,
-        lineHeight = 14.sp,
-        letterSpacing = 0.5.sp,
+        lineHeight = 16.sp,
+        letterSpacing = 1.sp,
     ),
     headlineSmall = TextStyle(
         fontFamily = Kanit,
         fontWeight = FontWeight.Thin,
         fontSize = 12.sp,
-        lineHeight = 12.sp,
+        lineHeight = 13.sp,
         letterSpacing = 1.sp,
     ),
     titleLarge = TextStyle(
         fontFamily = Kanit,
         fontWeight = FontWeight.Light,
         fontSize = 20.sp,
-        lineHeight = 24.sp,
+        lineHeight = 20.sp,
         letterSpacing = 0.sp
     ),
     bodyLarge = TextStyle(
         fontFamily = Kanit,
         fontWeight = FontWeight.Bold,
         fontSize = 16.sp,
-        lineHeight = 24.sp,
+        lineHeight = 16.sp,
         letterSpacing = 0.5.sp
     ),
     bodyMedium = TextStyle(
         fontFamily = Kanit,
         fontWeight = FontWeight.Light,
         fontSize = 16.sp,
-        lineHeight = 24.sp,
+        lineHeight = 16.sp,
         letterSpacing = 0.sp
+    ),
+    bodySmall = TextStyle(
+        fontFamily = Kanit,
+        fontWeight = FontWeight.ExtraLight,
+        fontSize = 12.sp,
+        lineHeight = 14.sp,
+        letterSpacing = 0.5.sp
     ),
     labelLarge = TextStyle(
         fontFamily = Kanit,
         fontWeight = FontWeight.Light,
         fontSize = 13.sp,
-        lineHeight = 20.sp,
+        lineHeight = 13.sp,
         letterSpacing = 1.sp
     ),
     labelSmall = TextStyle(
@@ -76,8 +84,6 @@ val Typography = Typography(
         lineHeight = 12.sp,
         letterSpacing = 1.sp
     ),
-
-
 
 
     /* Other default text styles to override
