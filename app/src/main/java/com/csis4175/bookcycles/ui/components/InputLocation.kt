@@ -27,7 +27,7 @@ fun InputLocation(modifier: Modifier = Modifier, label: String){
             modifier = Modifier.align(Alignment.Start),
         )
         OutlinedCard(
-            border = BorderStroke(1.dp, MaterialTheme.colorScheme.secondary),
+            border = BorderStroke(1.dp, MaterialTheme.colorScheme.surfaceContainerHighest),
             shape = RoundedCornerShape(6.dp),
             modifier = modifier
         ) {
