@@ -6,13 +6,16 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.sp
 import com.csis4175.bookcycles.R
 
 
 val Kanit = FontFamily(
     Font(R.font.kanit_regular, FontWeight.Normal),
-    Font(R.font.kanit_light, FontWeight.Light)
+    Font(R.font.kanit_light, FontWeight.Light),
+    Font(R.font.kanit_light, FontWeight.Thin),
+//    Font(R.font.kanit_regular, FontWeight.Normal),
 )
 
 // Set of Material typography styles to start with
@@ -23,6 +26,20 @@ val Typography = Typography(
         fontSize = 48.sp,
         lineHeight = 52.sp,
         letterSpacing = 0.sp
+    ),
+    headlineMedium = TextStyle(
+        fontFamily = Kanit,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp,
+        lineHeight = 14.sp,
+        letterSpacing = 0.5.sp,
+    ),
+    headlineSmall = TextStyle(
+        fontFamily = Kanit,
+        fontWeight = FontWeight.Thin,
+        fontSize = 12.sp,
+        lineHeight = 12.sp,
+        letterSpacing = 1.sp,
     ),
     titleLarge = TextStyle(
         fontFamily = Kanit,
@@ -59,6 +76,7 @@ val Typography = Typography(
         lineHeight = 12.sp,
         letterSpacing = 1.sp
     ),
+
 
 
 
