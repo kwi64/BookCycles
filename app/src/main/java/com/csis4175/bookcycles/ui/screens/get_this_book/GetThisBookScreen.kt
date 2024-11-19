@@ -12,6 +12,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
@@ -57,12 +58,13 @@ fun GetThisBookScreen(){
             modifier = Modifier
                 .height(300.dp)
         )
-
+        Spacer(Modifier.height(8.dp))
         Text(
             text = "THIS BOOK IS AVAILABLE AT 5.00 PM TODAY",
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.primary
         )
+        Spacer(Modifier.height(4.dp))
 
         InputButton(
             onClick = {},
