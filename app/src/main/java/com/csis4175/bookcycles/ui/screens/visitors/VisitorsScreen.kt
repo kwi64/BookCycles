@@ -58,7 +58,6 @@ fun VisitorsScreen() {
                 description = description,
                 imgSrc = imgSrc,
             )
-            Spacer(Modifier.height(8.dp))
             Text(
                 text = "SCHEDULED VISITORS",
                 style = MaterialTheme.typography.titleMedium

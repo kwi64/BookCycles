@@ -69,22 +69,6 @@ fun AppBarMenu(navController: NavHostController) {
                 Spacer(Modifier.width(12.dp))
                 Text(text = "HOME")
             }
-
-            HorizontalDivider(thickness = 2.dp)
-
-            MenuButton(
-                onClick = {
-                    showMenu = false
-                    navController.navigate(BookCyclesScreen.MyBooks.name)
-                },
-            ) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.MenuBook,
-                    contentDescription = "Localized description"
-                )
-                Spacer(Modifier.width(12.dp))
-                Text(text = "MY BOOKS")
-            }
         }
     }
 }
